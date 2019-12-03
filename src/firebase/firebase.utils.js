@@ -15,15 +15,15 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const createUserProfileDocument = async (userAth, additionalData) => {
-  if (!userAth) return;
-  const userRef = firestore.doc(`/user/${userAth.uid}`); //DocumentReference
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+  const userRef = firestore.doc(`/user/${userAuth.uid}`); //DocumentReference
   const snapShot = await userRef.get(); // DocumentSnapShot
   console.log(snapShot);
 
   // if the user doesn't exists in DB, then create it inside DB
   if (!snapShot.exists) {
-    const { displayName, email } = userAth;
+    const { displayName, email } = userAuth;
     const createAt = new Date();
     try {
       // use .set() DocumentReference CRUD method 
