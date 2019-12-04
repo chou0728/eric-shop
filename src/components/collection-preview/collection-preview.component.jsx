@@ -8,13 +8,12 @@ const CollectionPreview = ({ title, items }) => (
     <div className='preview'>
       {items
         .filter((item, idx) => idx < 4) // 直接使用filter來控制顯示數量(只顯示4筆)
-        .map((
-          { id, ...otherItemProps } // 但這些array methond 在此組件被rerender時重複被執行，有效能疑慮
-        ) => (
-          <CollectionItem key={id} {...otherItemProps} />
+        .map(item => (
+          <CollectionItem key={item.id} item={item} />
         ))}
     </div>
   </div>
 );
+// 但這些array methond 在此組件被rerender時重複被執行，有效能疑慮
 
 export default CollectionPreview;
