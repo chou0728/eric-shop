@@ -1,10 +1,10 @@
 import React from 'react';
-import DirectoryMenu from '../../components/directory/directory-menu.components';
+import Directory from '../../components/directory/directory.components';
 import './homepage.styles.scss';
 
 const functionName = () => (
   <div className='homepage'>
-    <DirectoryMenu />
+    <Directory />
   </div>
 );
 
